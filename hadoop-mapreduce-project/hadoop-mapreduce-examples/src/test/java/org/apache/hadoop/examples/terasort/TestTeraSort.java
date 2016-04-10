@@ -48,7 +48,8 @@ public class TestTeraSort extends HadoopTestCase {
   }
   
   // Input/Output paths for sort
-  private static final String TEST_DIR = 
+  private static final String URI_SCHEME = System.getProperty("os.name").startsWith("Windows") ? "file:/" : "file://";
+  private static final String TEST_DIR = URI_SCHEME +
     new File(System.getProperty("test.build.data", "/tmp"), "terasort")
     .getAbsolutePath();
   private static final Path SORT_INPUT_PATH = new Path(TEST_DIR, "sortin");
